@@ -1,14 +1,13 @@
-import os
 import requests
 from twilio.rest import Client
 
 OWN_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
-MY_API_KEY = "964fcfec612a63e1860c42f376fc1f90"
+MY_API_KEY = "Your openweathermap api key"
 MY_PHONENUMBER = "+886972988302"
 
 weather_params = {
-    "lat": -1.237927,
-    "lon": 116.852852,
+    "lat": 24.993993,
+    "lon": 121.302216,
     "appid": MY_API_KEY,
     "exclude": "current,minutely,daily"
 }
@@ -29,7 +28,7 @@ for hour_data in weather_slice:
 
 if will_rain:
     account_sid = 'AC54eaf9f436c566420931df8dbbb038a8'
-    auth_token = '0d8456dcb3755e650a5a8e30dc22bd29'
+    auth_token = 'Your Twilio auth token'
     client = Client(account_sid, auth_token)
 
     message = client.messages \
@@ -39,4 +38,3 @@ if will_rain:
         to=MY_PHONENUMBER
     )
     print(message.sid)
-    print("GOGO")
